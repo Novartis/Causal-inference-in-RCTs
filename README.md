@@ -12,7 +12,7 @@ short course at the following conferences:
 
 For data privacy reasons, 
 the numerical results in the [`conditional_marginal`](conditional_marginal)
-and [`hypothetical_estimand`](hypothetical_estimand) folders will not
+and [`hypothetical_estimand`](hypothetical_estimand) folders are based on simulated toy datasets and will not
 match the results from the short courses. 
 The numerical results in the [`heart_transplant`](heart_transplant) folder
 will match the results from the short courses.
