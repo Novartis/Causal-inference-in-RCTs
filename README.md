@@ -119,6 +119,10 @@ Install by running `devtools::install_github("Sophie-Sun/benchtm")`.
 - [`sandwich`](https://cran.r-project.org/web/packages/sandwich/index.html)
 - [`tidyverse`](https://cran.r-project.org/web/packages/tidyverse/index.html)
 
+# External links
+
+- [Markdown document](https://oncoestimand.github.io/princ_strat_drug_dev/princ_strat_example.html) with code examples for the principal stratum estimation approaches from [Bornkamp et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1002/pst.2104). Created by Björn Bornkamp and Kaspar Rufibach.
+
 # Code authors
 
 - Robin Dunn, robin.dunn@novartis.com
