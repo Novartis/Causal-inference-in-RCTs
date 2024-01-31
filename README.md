@@ -9,6 +9,7 @@ short course at the following conferences:
 - [Joint Statistical Meetings 2023](https://ww2.amstat.org/meetings/jsm/2023/)
 - [ASA Biopharmaceutical Section Regulatory-Industry Statistics Workshop 2023](https://ww2.amstat.org/meetings/biop/2023/)
 - [CEN 2023](https://cen2023.github.io/home/)
+- [Australian Pharmaceutical Biostatistics Group](https://apbg.org.au/apbg-events/)
 
 For data privacy reasons, 
 the numerical results in the [`conditional_marginal`](conditional_marginal)
