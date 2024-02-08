@@ -11,6 +11,7 @@ short course at the following conferences:
 - [CEN 2023](https://cen2023.github.io/home/)
 - [Australian Pharmaceutical Biostatistics Group 2024](https://apbg.org.au/apbg-events/)
 - [International Society for Biopharmaceutical Statistics 2024](https://www.isbiostat.org/)
+- [PSI 2024](https://www.psiweb.org/conferences/about-the-conference)
 
 For data privacy reasons, 
 the numerical results in the [`conditional_marginal`](conditional_marginal)
