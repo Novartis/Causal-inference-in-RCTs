@@ -40,7 +40,7 @@ In this repo, we implemented the following approaches:
 ### How to run the scripts
 
 The utilized functions to calculated the conditional and marginal estimates are 
-in [`funs/funs.R`](conditional_marginal/funs/funs.R).
+in [`conditional_marginal/funs/funs.R`](conditional_marginal/funs/funs.R).
 A wrapper function `summary_Estimate` could be used to obtain the conditional and marginal estimates with corresponding SE calculated in different ways. It can be called by `summary_Estimate(data=data, formula = as.formula("y ~ trt + X1"), nsim = 1000, trt.var = "trt", type = "OR")`, where
 
 * `data` is the data frame including treatment factor and covariates of used samples
@@ -54,10 +54,10 @@ A wrapper function `summary_Estimate` could be used to obtain the conditional an
 * `type` is the used estimator, "OR" for odds ratio and "RD" for risk difference.
 
 
-To run the demo, first run `source("src/01_gen_data.R")`, which will generate the toy dataset using `benchtm` package.
+To run the demo, first run `source("conditional_marginal/src/01_gen_data.R")`, which will generate the toy dataset using `benchtm` package.
 The toy dataset has 500 samples randomised to pbo (`0`) or treatment (`1`) arm with 10 covariates. And the response is generated using `logit(p) = 0.5*(X1=='Y') + 1*X3 + 0.3*trt`. Therefore, there are two prognostic covariates, `X1` and `X3`.
 
-Then `source("src/02_analysis.R")` gives the conditional and marginal estimates. And here we compare
+Then `source("conditional_marginal/src/02_analysis.R")` gives the conditional and marginal estimates. And here we compare
 
 * unadjusted, `Y ~ trt`
 
@@ -68,7 +68,7 @@ Then `source("src/02_analysis.R")` gives the conditional and marginal estimates.
 * adjusted with both prognostic factors and an unrelated factor `Y ~ trt + X1 + X3 + X8`
 
 Both odds ratio and risk difference estimates will be calculated and saved in
-`output/Result_condi_margin_OR.csv` and `output/Result_condi_margin_RD.csv` respectively.
+`conditional_marginal/output/Result_condi_margin_OR.csv` and `conditional_marginal/output/Result_condi_margin_RD.csv` respectively.
 
 ## Heart transplant example ([`heart_transplant`](heart_transplant))
 
