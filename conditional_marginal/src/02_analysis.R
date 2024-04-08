@@ -1,8 +1,8 @@
 #* load libs and funs
 library(tidyverse)
-source(file.path("funs/funs.R"))
+source(file.path("conditional_marginal/funs/funs.R"))
 set.seed(2023)
-dat <- readRDS(file = file.path("data/toy_data.rds"))
+dat <- readRDS(file = file.path("conditional_marginal/data/toy_data.rds"))
 
 #* unadjusted
 formula0 <- as.formula("Y ~ trt")
@@ -23,5 +23,5 @@ for (type in c("OR", "RD")) {
   res3 <- summary_Estimate(data = dat, formula3, nsim = nsim, trt.var = "trt", type = type)
 
   rbind(res0, res1, res2, res3) %>%
-    write.csv(file.path("output", paste0("Result_condi_margin_", type, ".csv")))
+    write.csv(file.path("conditional_marginal/output", paste0("Result_condi_margin_", type, ".csv")))
 }
