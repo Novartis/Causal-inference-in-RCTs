@@ -30,4 +30,4 @@ dat <- generate_y(X, trt,
   type = "binary"
 )
 dat$trt <- factor(dat$trt)
-saveRDS(dat, file = file.path("data/toy_data.rds"))
+saveRDS(dat, file = file.path("conditional_marginal/data/toy_data.rds"))
