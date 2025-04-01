@@ -13,6 +13,7 @@ short course at the following conferences:
 - [International Society for Biopharmaceutical Statistics 2024](https://www.isbiostat.org/)
 - [PSI 2024](https://www.psiweb.org/conferences/about-the-conference)
 - [Joint Statistical Meetings 2024](https://ww2.amstat.org/meetings/jsm/2024/)
+- [International Biometric Conference 2024](https://www.ibc2024.org/home)
 
 For data privacy reasons, 
 the numerical results in the [`conditional_marginal`](conditional_marginal)
