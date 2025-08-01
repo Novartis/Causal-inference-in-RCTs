@@ -36,7 +36,7 @@ In this repo, we implemented the following approaches:
   robust "sandwich" estimator. Implementation available in 
   []
   * Marginal treatment effect point estimates and SEs using 
-  [Ye et al. (2023)](LINK) **ADD LINK**
+  [Ye et al. (2023)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10665030/)
   semiparametric approaches implemented in 
   [RobinCar2 package](https://cran.r-project.org/package=RobinCar2)
   * Functions from previous lectures, available in 
