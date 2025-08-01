@@ -17,10 +17,9 @@ short course at the following conferences:
 - [Joint Statistical Meetings 2025](https://ww2.amstat.org/meetings/jsm/2025/)
 
 For data privacy reasons, 
-the numerical results in the [`conditional_marginal`](conditional_marginal)
-and [`hypothetical_estimand`](hypothetical_estimand) folders are based on simulated toy datasets and will not
+the numerical results in the [`hypothetical_estimand`](hypothetical_estimand) folder are based on simulated toy datasets and will not
 match the results from the short courses. 
-The numerical results in the [`heart_transplant`](heart_transplant) folder
+The numerical results in the [`heart_transplant`](heart_transplant) and [`conditional_marginal`](conditional_marginal) folders
 will match the results from the short courses.
 
 # Repository contents
@@ -30,48 +29,40 @@ will match the results from the short courses.
 This folder contains example code for the 
 "conditional and marginal treatment effect" lecture of the short course.
 
-In this repo, we implemented the following approaches:
+In this repository, we implemented the following approaches:
 
-  * Conditional treatment effect point estimate and SE using Huber-White robust “sandwich” estimator
-  * Marginal treatment effect point estimate using standardization
-  * SE of marginal treatment effect using
+  * Conditional treatment effect point estimates and SEs using Huber-White 
+  robust "sandwich" estimator. 
+  * Marginal treatment effect point estimates and SEs using 
+  [Ye et al. (2023)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10665030/)
+  semiparametric approaches implemented in 
+  [RobinCar2 package](https://cran.r-project.org/package=RobinCar2)
+  * Functions from previous lectures, available in 
+  [conditional_marginal/funs/old_funs.R](conditional_marginal/funs/old_funs.R) estimate the 
+  SE of the marginal treatment effect via the following approaches:
     
       * Nonparametric bootstrap method ([Efron and Tibshirani, 1994](https://www.taylorfrancis.com/books/mono/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani)) 
       * Delta method
-      * Parametric bootstrap method ([Aalen et al., 1998](https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1097-0258(19971015)16:19%3C2191::AID-SIM645%3E3.0.CO;2-5))
+      * Parametric bootstrap method ([Aalen et al., 1998](https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1097-0258(19971015)16:19%3C2191::AID-SIM645%3E3.0.CO;2-5)).
 
 ### How to run the scripts
 
-The utilized functions to calculated the conditional and marginal estimates are 
-in [`conditional_marginal/funs/funs.R`](conditional_marginal/funs/funs.R).
-A wrapper function `summary_Estimate` could be used to obtain the conditional and marginal estimates with corresponding SE calculated in different ways. It can be called by `summary_Estimate(data=data, formula = as.formula("y ~ trt + X1"), nsim = 1000, trt.var = "trt", type = "OR")`, where
+To run the demo, first run [conditional_marginal/src/01_gen_data.R](conditional_marginal/src/01_gen_data.R), 
+which will generate the toy dataset using the `benchtm` package.
+The toy dataset has 500 samples randomized to placebo (`0`) or treatment (`1`) arm with 10 covariates. The binary response is generated from the model 
+`logit(p) = 1*(X1=='Y') + 0.3*X2 + 0.3*trt`. Therefore, there are two prognostic covariates, `X1` and `X2`. This script saves the generated data to
+[conditional_marginal/data/toy_data.rds](conditional_marginal/data/toy_data.rds). 
+The data are also stored in the repository to ensure reproducibility. 
 
-* `data` is the data frame including treatment factor and covariates of used samples
-
-* `formula` specifies the response, treatment variable and adjusted covariates
-
-* `nsim` is the number of bootstrap replicates when calculating SE for marginal estimate
-
-* `trt.var` is the name of treatment variable
-
-* `type` is the used estimator, "OR" for odds ratio and "RD" for risk difference.
-
-
-To run the demo, first run `source("conditional_marginal/src/01_gen_data.R")`, which will generate the toy dataset using `benchtm` package.
-The toy dataset has 500 samples randomised to pbo (`0`) or treatment (`1`) arm with 10 covariates. And the response is generated using `logit(p) = 0.5*(X1=='Y') + 1*X3 + 0.3*trt`. Therefore, there are two prognostic covariates, `X1` and `X3`.
-
-Then `source("conditional_marginal/src/02_analysis.R")` gives the conditional and marginal estimates. And here we compare
+Second, [conditional_marginal/src/02_analysis.R](conditional_marginal/src/02_analysis.R) estimates the 
+marginal and conditional treatment effects on both the risk difference and 
+odds ratio scales. This script compares treatment effects under the following adjustment models:
 
 * unadjusted, `Y ~ trt`
 
-* adjusted with one moderate prognostic factor `Y ~ trt + X1`
+* adjusted with one prognostic factor `Y ~ trt + X1`
 
-* adjusted with one moderate and one strong prognostic factor `Y ~ trt + X1 + X3`
-
-* adjusted with both prognostic factors and an unrelated factor `Y ~ trt + X1 + X3 + X8`
-
-Both odds ratio and risk difference estimates will be calculated and saved in
-`conditional_marginal/output/Result_condi_margin_OR.csv` and `conditional_marginal/output/Result_condi_margin_RD.csv` respectively.
+* adjusted with two prognostic factors `Y ~ trt + X1 + X2`.
 
 ## Heart transplant example ([`heart_transplant`](heart_transplant))
 
