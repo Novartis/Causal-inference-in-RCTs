@@ -17,10 +17,9 @@ short course at the following conferences:
 - [Joint Statistical Meetings 2025](https://ww2.amstat.org/meetings/jsm/2025/)
 
 For data privacy reasons, 
-the numerical results in the [`conditional_marginal`](conditional_marginal)
-and [`hypothetical_estimand`](hypothetical_estimand) folders are based on simulated toy datasets and will not
+the numerical results in the [`hypothetical_estimand`](hypothetical_estimand) folder are based on simulated toy datasets and will not
 match the results from the short courses. 
-The numerical results in the [`heart_transplant`](heart_transplant) folder
+The numerical results in the [`heart_transplant`](heart_transplant) and [`conditional_marginal`](conditional_marginal) folders
 will match the results from the short courses.
 
 # Repository contents
@@ -30,18 +29,17 @@ will match the results from the short courses.
 This folder contains example code for the 
 "conditional and marginal treatment effect" lecture of the short course.
 
-In this repo, we implemented the following approaches:
+In this repository, we implemented the following approaches:
 
   * Conditional treatment effect point estimates and SEs using Huber-White 
-  robust "sandwich" estimator. Implementation available in 
-  []
+  robust "sandwich" estimator. 
   * Marginal treatment effect point estimates and SEs using 
   [Ye et al. (2023)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10665030/)
   semiparametric approaches implemented in 
   [RobinCar2 package](https://cran.r-project.org/package=RobinCar2)
   * Functions from previous lectures, available in 
-  [conditional_marginal/funs/old_funs.R](conditional_marginal/funs) estimate the 
-  SE of marginal treatment effect via the following approaches:
+  [conditional_marginal/funs/old_funs.R](conditional_marginal/funs/old_funs.R) estimate the 
+  SE of the marginal treatment effect via the following approaches:
     
       * Nonparametric bootstrap method ([Efron and Tibshirani, 1994](https://www.taylorfrancis.com/books/mono/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani)) 
       * Delta method
@@ -49,14 +47,14 @@ In this repo, we implemented the following approaches:
 
 ### How to run the scripts
 
-To run the demo, first run `source("conditional_marginal/src/01_gen_data.R")`, 
+To run the demo, first run [conditional_marginal/src/01_gen_data.R](conditional_marginal/src/01_gen_data.R), 
 which will generate the toy dataset using the `benchtm` package.
 The toy dataset has 500 samples randomized to placebo (`0`) or treatment (`1`) arm with 10 covariates. The binary response is generated from the model 
 `logit(p) = 1*(X1=='Y') + 0.3*X2 + 0.3*trt`. Therefore, there are two prognostic covariates, `X1` and `X2`. This script saves the generated data to
 [conditional_marginal/data/toy_data.rds](conditional_marginal/data/toy_data.rds). 
 The data are also stored in the repository to ensure reproducibility. 
 
-Second, `source("conditional_marginal/src/02_analysis.R")` estimates the 
+Second, [conditional_marginal/src/02_analysis.R](conditional_marginal/src/02_analysis.R) estimates the 
 marginal and conditional treatment effects on both the risk difference and 
 odds ratio scales. This script compares treatment effects under the following adjustment models:
 
