@@ -15,6 +15,7 @@ short course at the following conferences:
 - [Joint Statistical Meetings 2024](https://ww2.amstat.org/meetings/jsm/2024/)
 - [International Biometric Conference 2024](https://www.ibc2024.org/home)
 - [Joint Statistical Meetings 2025](https://ww2.amstat.org/meetings/jsm/2025/)
+- [Joint Statistical Meetings 2026](https://ww2.amstat.org/meetings/jsm/2026/)
 
 For data privacy reasons, 
 the numerical results in the [`hypothetical_estimand`](hypothetical_estimand) folder are based on simulated toy datasets and will not
